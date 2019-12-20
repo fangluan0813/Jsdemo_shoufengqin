@@ -1,0 +1,82 @@
+L<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>折叠菜单和手风琴菜单</title>
+	<style>
+		*{margin:0;padding:0;}
+		ol,ul{list-style: none;}
+		.menu{
+			width:300px;
+			margin:0 auto;
+		}
+		.menu h3{
+			height:30px;
+			text-align: center;
+			cursor:pointer;
+			background:#711515;
+			color:#fff;
+		}
+		.menu ul{
+			display:none;
+		}
+		.menu ul li{
+			height: 30px;
+			text-align: center;
+			line-height:30px;
+			background:#ed9f9f;
+			border-bottom:1px solid #fff;
+		}
+	</style>
+</head>
+<body>
+
+	<ul class="menu">
+		<li><h3>首页</h3></li>
+		<li>
+			<h3>流行歌曲</h3>
+			<ul>
+				<li>两只蝴蝶</li>
+				<li>最炫名族风</li>
+				<li>小苹果</li>
+			</ul>
+		</li>
+		<li>
+			<h3>日韩歌曲</h3>
+			<ul>
+				<li>江南style</li>
+				<li>恋爱循环</li>
+				<li>7年的爱</li>
+			</ul>
+		</li>
+		<li>
+			<h3>儿歌歌曲</h3>
+			<ul>
+				<li>葫芦王</li>
+				<li>两只老虎</li>
+				<li>蓝精灵</li>
+			</ul>
+		</li>
+	</ul>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+
+		// 默认显示
+		$('.menu li:has(ul)').first().children('ul').show();
+
+		$('.menu li:has(ul)').click(function(){
+			$(this)	// ==>this 指向当前元素
+			.children('ul')
+			.slideDown() 
+			.parent()  // 父级
+			.siblings() // 兄弟
+			.children('ul') // 孩子
+			.slideUp();
+		})
+
+	</script>
+</body>
+</html>
